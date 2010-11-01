@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+function add_new_location {
+	label=$1
+	location=$2
+
+	if [ "$location" = "." ] || [ "$location" = "" ]; then
+		location=$(pwd)
+	fi
+
+	echo $label $location >> ~/.jump/to/locations
+	echo "_J_ $location is a new jump labelled *$label*"
+}
+
+function label_used {
+	label=$1
+	used=$(cat ~/.jump/to/locations | grep $label | wc -l)
+	echo $used
+}
+
+if [ "$(label_used $1)" != "0" ]; then
+	echo _J_ WARNING:
+	echo "_J_ The label *$1* is already in use. Try another one :-)"
+else
+	add_new_location $1 $2
+fi

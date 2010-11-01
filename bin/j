@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+function jump_to_location {
+	jump_to_key=$1
+	location=$(awk -v jump_to_key="$jump_to_key" '{ if ($1 == jump_to_key) print $2 }' ~/.jump/to/locations)
+	if [ "$location" = "" ]; then
+		echo Location not found.
+	else
+		echo "_/\/\_ Jumping to $location" 
+		cd $location
+	fi
+}
+
+jump_to_location $1
