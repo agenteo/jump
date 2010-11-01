@@ -9,8 +9,11 @@ mkdir ~/.jump
 cd ~/.jump
 git clone // or wget the code
 
-2) Add the executables to your system PATH. This is my PATH in ~./bash_profile 
-export PATH=~/.gem/ruby/1.8/bin/:/opt/local/bin:/opt/local/sbin:~/.jump/bin:$PATH
+2) Add the executables to your PATH and alias j to let 'cd' work:
+if [ -s ~/.jump/bin/j ]; then
+	export PATH=~/.jump/bin:$PATH
+	alias j=". j"
+fi
 
 3) You have to make sure to add the following alias to your bash profile:
 alias j=". j"
