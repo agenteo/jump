@@ -13,7 +13,7 @@ function add_new_location {
 
 function label_used {
 	label=$1
-	used=$(cat ~/.jump/to/locations | grep $label | wc -l)
+	used=$(grep "^$label " ~/.jump/to/locations | wc -l)
 	echo $used
 }
 
