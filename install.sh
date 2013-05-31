@@ -3,7 +3,7 @@ echo "=> Creating jump directory"
 mkdir ~/.jump
 cd ~/.jump
 echo "=> Cloning jump from Github"
-git clone -b create-installer git@github.com:agenteo/jump.git .
+git clone git@github.com:agenteo/jump.git .
 echo "=> Removing github repo files"
 rm -Rf .git
 
